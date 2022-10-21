@@ -1,0 +1,22 @@
+initial home page: login or signup
+
+login page: 
+    username, password
+
+signup page: 
+    username, password, password
+
+profile setup: 
+    name
+    email 
+    phone number
+    age?
+    zip code?
+    date of birth
+    anniversary
+    important dates
+    partner's name
+    partner's birthday
+    partner's phone number?
+    preferred prompts
+    frequency
