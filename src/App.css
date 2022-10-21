@@ -45,4 +45,24 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  /* font-family:"Oswald"; */
+}
+
+#login{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+}
+
+#checkbox-group{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  color: darkslategray;
+  /* font-family:"oswald"; */
+}
+
+.Button{
+  /* background-color: solid black 2px; */
 }

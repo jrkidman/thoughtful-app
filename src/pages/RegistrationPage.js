@@ -1,4 +1,4 @@
-import { Box, Button, Checkbox, FormControlLabel, FormGroup, TextField, Typography } from '@mui/material';
+import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react'
 import Footer from '../components/layoutComponents/Footer';
 import Header from '../components/layoutComponents/Header';
@@ -6,11 +6,12 @@ import Header from '../components/layoutComponents/Header';
 
 // need a header and footer, possibly put into layout?
 // text inputs for: firstname, lastname, email, password
-// select input for love language options
+// checkboxes for love language options
 // input for photo url
 
 function RegistrationPage() {
 
+    //stuff for registration form
     const [userRegistrationForm, setUserRegistrationForm] = useState({
         firstName: '',
         lastName: '',
@@ -26,6 +27,25 @@ function RegistrationPage() {
     };
 
 
+
+// stuff for checkboxes
+    const [checkbox, setCheckbox] = useState({
+        wordsOfAffirmation: false,
+        actsOfService: false,
+        qualityTime: false,
+        physicalTouch: false,
+        giftGiving: false,
+    });
+    const handleChange = (event) => {
+        setCheckbox({
+            ...checkbox,
+            [event.target.name]: event.target.checked,
+        });
+    };
+    const { wordsOfAffirmation, actsOfService, qualityTime, physicalTouch, giftGiving } = checkbox;
+
+
+
     return (
         <div>
             <Header />
@@ -34,6 +54,12 @@ function RegistrationPage() {
                 action="submit"
                 onSubmit={handleSubmit}
             >
+                <Typography
+                    mt="30px"
+                    fontFamily="oswald"
+                    fontSize="30px"
+                >Create Your Account</Typography>
+
                 <Box mb={4}>
                     <TextField
                         id="firstName"
@@ -89,15 +115,54 @@ function RegistrationPage() {
                     />
                 </Box>
 
-                <Box mb={4}>
-                    <Typography>What prompts would you like to receive?</Typography>
-                    <FormGroup>
-                        <FormControlLabel control={<Checkbox />} label="Words of Affirmation" />
-                        <FormControlLabel control={<Checkbox />} label="Acts of Service" />
-                        <FormControlLabel control={<Checkbox />} label="Quality Time" />
-                        <FormControlLabel control={<Checkbox />} label="Physical Touch" />
-                        <FormControlLabel control={<Checkbox />} label="Gift Giving" />
-                    </FormGroup>
+
+                <Box
+                    sx={{ display: 'flex' }}
+                    id="checkbox-group">
+                    <FormControl sx={{ m: 3, }} component="fieldset" variant="standard">
+                        <FormLabel
+                            component="legend"
+                            // fontFamily="oswald"
+                        >Which prompts would you like to receive?</FormLabel>
+                        <FormGroup>
+
+                            <FormControlLabel
+                                control={
+                                    <Checkbox checked={wordsOfAffirmation} onChange={handleChange} name="words-of-affirmation" />
+                                }
+                                label="Words of Affirmation"
+
+                            />
+
+                            <FormControlLabel
+                                control={
+                                    <Checkbox checked={actsOfService} onChange={handleChange} name="acts-of-service" />
+                                }
+                                label="Acts of Service"
+                            />
+
+                            <FormControlLabel
+                                control={
+                                    <Checkbox checked={qualityTime} onChange={handleChange} name="quality-time" />
+                                }
+                                label="Quality Time"
+                            />
+
+                            <FormControlLabel
+                                control={
+                                    <Checkbox checked={physicalTouch} onChange={handleChange} name="physical-touch" />
+                                }
+                                label="Physical Touch"
+                            />
+
+                            <FormControlLabel
+                                control={
+                                    <Checkbox checked={giftGiving} onChange={handleChange} name="gift-giving" />
+                                }
+                                label="Gift Giving"
+                            />
+                        </FormGroup>
+                    </FormControl>
                 </Box>
 
 

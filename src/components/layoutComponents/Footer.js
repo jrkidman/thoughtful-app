@@ -7,7 +7,7 @@ function Footer() {
       bgcolor="#a9b386"
       width="100%"
       p="40px"
-      position="absolute"
+      position="relative"
       bottom="0px"
     >
       <Typography
