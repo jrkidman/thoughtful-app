@@ -4,11 +4,14 @@ import Footer from '../components/layoutComponents/Footer';
 import Header from '../components/layoutComponents/Header';
 
 
-// text inputs for: firstname, lastname, email, password, photo
+// need a header and footer, possibly put into layout?
+// text inputs for: firstname, lastname, email, password
 // checkboxes for love language options
+// input for photo url
 
-function RegistrationPage() {
-    // state for registration form
+function EditProfilePage() {
+
+    //stuff for registration form
     const [userRegistrationForm, setUserRegistrationForm] = useState({
         firstName: '',
         lastName: '',
@@ -55,7 +58,7 @@ function RegistrationPage() {
                     mt="30px"
                     fontFamily="oswald"
                     fontSize="30px"
-                >Create Your Account</Typography>
+                >Edit Your Profile</Typography>
 
                 <Box mb={4}>
                     <TextField
@@ -111,11 +114,6 @@ function RegistrationPage() {
                         required
                     />
                 </Box>
-
-                <Box>
-          <img style={{ width: '200px', height: '200px', objectFit: 'cover' }} src={userRegistrationForm.profilePicture} alt="user" />
-        </Box>
-
 
 
                 <Box
@@ -174,18 +172,14 @@ function RegistrationPage() {
 
                     </Box>
                 )} */}
-
                 <Box>
-                    <Button type="submit">Submit
-                    {console.log("checkboxes: ", checkbox)}
-
-                    </Button>
+                    <Button type="submit">Submit</Button>
                 </Box>
             </form>
-            <Footer/>
+            <Footer />
         </div>
     );
 
 }
 
-export default RegistrationPage;
+export default EditProfilePage;

@@ -63,6 +63,15 @@
   /* font-family:"oswald"; */
 }
 
-.Button{
-  /* background-color: solid black 2px; */
+#profile-main-container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#prompt-main-container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
 }

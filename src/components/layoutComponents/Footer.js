@@ -7,15 +7,15 @@ function Footer() {
       bgcolor="#a9b386"
       width="100%"
       p="40px"
-      position="relative"
+      position="absolute"
       bottom="0px"
+      sx={{ flexGrow: 1 }}
     >
       <Typography
         fontWeight="bold"
         align="center"
         color="white"
         fontFamily="Oswald"
-
       >Be Thoughtful </Typography>
 
     </Box>

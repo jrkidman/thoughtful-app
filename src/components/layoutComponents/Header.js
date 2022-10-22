@@ -19,7 +19,6 @@ export default function Header({ user, isSignedIn }) {
           {/* <Link to="/"> */}
           <Typography
             variant="h6"
-            // fontWeight="bold"
             component="div"
             color="white"
             fontFamily="Sacramento"
@@ -30,14 +29,14 @@ export default function Header({ user, isSignedIn }) {
 
           {/* </Link> */}
           <div>
-            <Link to="/sign-in">
+            <Link to="/login">
               {/* if user is signed in, icon should be userimage */}
               <IconButton
                 size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                sx={{"color":"white"}}
+                sx={{ "color": "white" }}
 
               >
                 {/* {!isSignedIn ? ( */}
@@ -51,15 +50,17 @@ export default function Header({ user, isSignedIn }) {
               </IconButton>
             </Link>
 
-            <IconButton
-              size="large"
-              aria-label="prompt"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              sx={{"color":"white"}}
-            >
-              <VolunteerActivismIcon />
-            </IconButton>
+            <Link to="/prompt">
+              <IconButton
+                size="large"
+                aria-label="prompt"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                sx={{ "color": "white" }}
+              >
+                <VolunteerActivismIcon />
+              </IconButton>
+            </ Link>
 
           </div>
         </Toolbar>
