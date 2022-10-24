@@ -2,9 +2,13 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import { useSelector } from 'react-redux';
 
 
 export default function ProfileCard() {
+    const user = useSelector(state => state.user);
+    console.log("user: ", user);
+   
     return (
         <Card sx={{
             minWidth: 275,
@@ -22,7 +26,7 @@ export default function ProfileCard() {
                 </Typography>
 
                 <Typography variant="h5" component="div" fontFamily="oswald" fontWeight="bold">
-                    Your name is:
+                    {/* Your name is: {user.firstName} */}
                 </Typography>
                 <Typography variant="h5" component="div" fontFamily="oswald" mb={2}>
                     Name goes here.

@@ -1,4 +1,5 @@
 // import { ThemeProvider } from '@mui/material';
+import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import EditProfilePage from './pages/EditProfilePage';
@@ -7,11 +8,13 @@ import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import PromptPage from './pages/PromptPage';
 import RegistrationPage from './pages/RegistrationPage';
+import store from './reduxState';
 
 
 
 function App() {
   return (
+    <Provider store={store}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -23,6 +26,7 @@ function App() {
 
           </Routes>
         </BrowserRouter>
+    </Provider>
 
   );
 }

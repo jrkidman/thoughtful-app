@@ -1,9 +1,11 @@
 import { Box, Button, Typography, TextField } from '@mui/material'
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Footer from '../components/layoutComponents/Footer'
 import Header from '../components/layoutComponents/Header'
 import Axios from '../components/utils/Axios'
+import { signIn } from '../reduxState/userSlice'
 
 // login a user
 //      get email and password
@@ -11,19 +13,22 @@ import Axios from '../components/utils/Axios'
 //          handle response from api
 
 
-const LoginPage = () => {
-    const [isSignedIn, setIsSignedIn] = useState(false);
+const LoginPage = (e) => {
+    // e.preventDefault();
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.user);
+    console.log("user: ", user);
+
+  
 
     const handleSubmit = async (event) => {
         // make sure form is correct, validation
         event.preventDefault();
-        console.log('button clicked')
         // send email and password
         const response = await Axios.post('/login', {credentials: loginForm});
+        console.log("api response: ", response);
         
-        
-        setIsSignedIn(true);
-        console.log("is signed in: ", isSignedIn);
+        dispatch(signIn(response.data.user));
     };
 
     const [loginForm, setLoginForm] = useState({
@@ -31,6 +36,10 @@ const LoginPage = () => {
         password: '',
     });
 
+// random conditional to show overriding the other return
+    if(user){
+        return <h1>hi {user.firstName} {user.lastName}</h1>
+    }
 
 
     return (

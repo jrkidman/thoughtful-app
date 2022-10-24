@@ -9,6 +9,7 @@ import PromptCard from '../components/PromptCard'
 
 
 const PromptPage = () => {
+    
     return (
         <div>
             <Header />

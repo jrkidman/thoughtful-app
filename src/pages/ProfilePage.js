@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Footer from '../components/layoutComponents/Footer'
 import Header from '../components/layoutComponents/Header'
@@ -7,24 +8,20 @@ import ProfileCard from '../components/ProfileCard'
 
 
 //what is going to go on this page anyway?
+// needs to have a signout button somewhere
 
-const ProfilePage = () => {
+const ProfilePage = (e) => {
+    // e.preventDefault();
+    const user = useSelector(state => state.user);
+    console.log("user: ", user);
+
     return (
         <div >
             <Header />
                 <ProfileCard />
 
 
-
-
-
-
-
-
-
-
-            
-            {/* <div id="profile-main-container">
+             {/* <div id="profile-main-container">
                 <Box mt={6}>
                     <Typography
                         mt="30px"
@@ -59,9 +56,11 @@ const ProfilePage = () => {
                     </Typography>
                 </Box>
 
- */}
-            {/* </div> */}
+
+            </div>
             
+ */}
+
             <Box display="flex" justifyContent="center">
                     <Link to="/edit-profile" >
                         <Button>Edit Profile</Button>

@@ -14,7 +14,9 @@ import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 export default function Header({ user, isSignedIn }) {
   return (
     <Box sx={{ flexGrow: 1 }} >
-      <Box id="main-header-box" position="static relative" backgroundColor="#a9b386">
+      <Box id="main-header-box" 
+      position="static relative" backgroundColor="#a9b386" 
+      width="100%">
         <Toolbar >
           {/* <Link to="/"> */}
           <Typography
