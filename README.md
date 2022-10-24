@@ -1,3 +1,18 @@
+# todo
+- backend: mostly done
+    - get register user to work so passwords are hashed
+    - test register user
+    - test user login
+
+- frontend: 
+    -UI: mostly done
+    -API calls
+        get api calls to work
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

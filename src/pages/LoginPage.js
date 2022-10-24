@@ -3,16 +3,27 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../components/layoutComponents/Footer'
 import Header from '../components/layoutComponents/Header'
+import Axios from '../components/utils/Axios'
 
-//text inputs for email and password
-//login button
-//link to register new account
+// login a user
+//      get email and password
+//      send login request
+//          handle response from api
+
 
 const LoginPage = () => {
+    const [isSignedIn, setIsSignedIn] = useState(false);
 
     const handleSubmit = async (event) => {
         // make sure form is correct, validation
         event.preventDefault();
+        console.log('button clicked')
+        // send email and password
+        const response = await Axios.post('/login', {credentials: loginForm});
+        
+        
+        setIsSignedIn(true);
+        console.log("is signed in: ", isSignedIn);
     };
 
     const [loginForm, setLoginForm] = useState({
@@ -61,14 +72,14 @@ const LoginPage = () => {
                 </Box>
 
                 <Box>
-                    <Button type="submit">Login</Button>
+                    <Button type="submit" onClick={handleSubmit}>Login</Button>
                 </Box>
 
                 <Box>
-                <Link to="/register-user">
-                    <Button
-                        type="submit"
-                    >Create Account</Button>
+                    <Link to="/register-user">
+                        <Button
+                            type="submit"
+                        >Create Account</Button>
                     </Link>
                 </Box>
 

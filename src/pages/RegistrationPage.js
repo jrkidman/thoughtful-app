@@ -2,6 +2,7 @@ import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLa
 import React, { useState } from 'react'
 import Footer from '../components/layoutComponents/Footer';
 import Header from '../components/layoutComponents/Header';
+import Axios from '../components/utils/Axios';
 
 
 // text inputs for: firstname, lastname, email, password, photo
@@ -21,6 +22,12 @@ function RegistrationPage() {
     const handleSubmit = async (event) => {
         // make sure form is correct, validation
         event.preventDefault();
+        console.log("registration submit route hit")
+        const response = await Axios.post('/register-user', userRegistrationForm);
+        console.log("api response: ", response);
+        const fetchedUser = response.data.user;
+        
+
     };
 
 
@@ -176,8 +183,8 @@ function RegistrationPage() {
                 )} */}
 
                 <Box>
-                    <Button type="submit">Submit
-                    {console.log("checkboxes: ", checkbox)}
+                    <Button type="submit" onClick={handleSubmit}>Submit
+                    {/* {console.log("checkboxes: ", checkbox)} */}
 
                     </Button>
                 </Box>
