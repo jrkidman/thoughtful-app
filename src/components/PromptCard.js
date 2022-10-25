@@ -5,36 +5,31 @@ import Typography from '@mui/material/Typography';
 import Axios from './utils/Axios';
 
 
-// need to get random prompts from db to display here
+// need to get random prompts from db to  here
 
-export default function PromptCard() {
+export default function PromptCard(props) {
 
-    const getPrompt = async (event) => {
-        event.preventDefault();
-        const response = await Axios.get('/prompt', );
-        // console.log("api response: ", response);
-        const fetchedPrompt = response.data;
-        
-    };
-
+    const { promptData } = props;
 
     return (
         <Card sx={{
             minWidth: 275,
-            maxWidth: "cover",
-            marginLeft: 20,
-            marginRight: 20,
+            maxWidth: 700,
             backgroundColor: "#63694e",
-            padding: 10,
             borderRadius: 6,
-            boxShadow: 10
+            boxShadow: 10,
+            m: 2,
         }}>
             <CardContent>
                 <Typography sx={{ fontSize: 18 }} color="text.secondary" gutterBottom>
                     Prompt of the Day
                 </Typography>
-                <Typography variant="h2" component="div" fontFamily="oswald">
-                    Random prompt from database will go here. It should also refresh with a new prompt if the button below is clicked.
+                <Typography
+                    variant="h2"
+                    component="div"
+                    fontFamily="oswald"
+                    fontSize={70}>
+                        {promptData}
                 </Typography>
             </CardContent>
         </Card>
