@@ -7,11 +7,14 @@ import IconButton from '@mui/material/IconButton';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { Link } from 'react-router-dom';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
-// import LoyaltyIcon from '@material-ui/icons/Loyalty';
-// import { Avatar } from '@mui/material';
+import { Avatar } from '@mui/material';
+import { useSelector } from 'react-redux';
 
 
-export default function Header({ user, isSignedIn }) {
+export default function Header() {
+  const user = useSelector(state => state.user);
+
+
   return (
     <Box sx={{ flexGrow: 1 }} >
       <Box id="main-header-box" 
@@ -31,7 +34,7 @@ export default function Header({ user, isSignedIn }) {
 
           {/* </Link> */}
           <div>
-            <Link to="/login">
+            <Link to="/profile">
               {/* if user is signed in, icon should be userimage */}
               <IconButton
                 size="large"
@@ -41,14 +44,11 @@ export default function Header({ user, isSignedIn }) {
                 sx={{ "color": "white" }}
 
               >
-                {/* {!isSignedIn ? ( */}
-                <AccountCircleIcon />
-                {/* ) : ( */}
-                {/* <Avatar
+                {!user ? (
+                <AccountCircleIcon />) : 
+                 (<Avatar
                     alt={user.firstName}
-                    src={user.profilePicture}
-                  /> */}
-                {/* )} */}
+                    src={user.profilePicture}/>)} 
               </IconButton>
             </Link>
 

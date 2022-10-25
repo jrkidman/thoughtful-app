@@ -5,10 +5,18 @@ import Typography from '@mui/material/Typography';
 import Axios from './utils/Axios';
 
 
+// need to get random prompts from db to display here
+
 export default function PromptCard() {
-    const prompt = async () => {
-        await Axios.get
-    }
+
+    const getPrompt = async (event) => {
+        event.preventDefault();
+        const response = await Axios.get('/prompt', );
+        // console.log("api response: ", response);
+        const fetchedPrompt = response.data;
+        
+    };
+
 
     return (
         <Card sx={{

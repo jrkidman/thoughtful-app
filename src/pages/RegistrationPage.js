@@ -1,14 +1,15 @@
 import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Footer from '../components/layoutComponents/Footer';
 import Header from '../components/layoutComponents/Header';
 import Axios from '../components/utils/Axios';
 
 
-// text inputs for: firstname, lastname, email, password, photo
-// checkboxes for love language options
-
 function RegistrationPage() {
+    const navigate = useNavigate();
+
+
     // state for registration form
     const [userRegistrationForm, setUserRegistrationForm] = useState({
         firstName: '',
@@ -20,11 +21,10 @@ function RegistrationPage() {
     });
 
     const handleSubmit = async (event) => {
-        // make sure form is correct, validation
         event.preventDefault();
-        console.log("registration submit route hit")
         const response = await Axios.post('/register-user', userRegistrationForm);
-        console.log("api response: ", response);
+        // console.log("api response: ", response);
+        navigate('/login');
         const fetchedUser = response.data.user;
         
 

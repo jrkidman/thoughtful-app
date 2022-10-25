@@ -1,15 +1,15 @@
 import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Footer from '../components/layoutComponents/Footer';
 import Header from '../components/layoutComponents/Header';
+import Axios from '../components/utils/Axios';
 
 
-// need a header and footer, possibly put into layout?
-// text inputs for: firstname, lastname, email, password
-// checkboxes for love language options
-// input for photo url
+// need to get current user in database to be able to update that document
 
 function EditProfilePage() {
+const navigate = useNavigate();
 
     //stuff for registration form
     const [userRegistrationForm, setUserRegistrationForm] = useState({
@@ -22,9 +22,15 @@ function EditProfilePage() {
     });
 
     const handleSubmit = async (event) => {
-        // make sure form is correct, validation
         event.preventDefault();
+        const response = await Axios.put('/edit-profile', userRegistrationForm)
+        console.log('api response: ', response);
+        // navigate('/profile');
     };
+
+
+
+
 
 
 

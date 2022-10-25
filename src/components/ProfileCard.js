@@ -3,12 +3,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { useSelector } from 'react-redux';
+import { Box } from '@mui/material';
 
 
 export default function ProfileCard() {
     const user = useSelector(state => state.user);
-    console.log("user: ", user);
-   
+    // console.log("user: ", user);
+
     return (
         <Card sx={{
             minWidth: 275,
@@ -17,8 +18,8 @@ export default function ProfileCard() {
             marginLeft: 20,
             marginRight: 20,
             backgroundColor: "#63694e",
-            padding: 10,
-            borderRadius:6
+            padding: 5,
+            borderRadius: 6
         }}>
             <CardContent>
                 <Typography sx={{ fontSize: 32, fontFamily: 'oswald', fontWeight: 'bold' }} color="text.secondary" gutterBottom>
@@ -26,10 +27,10 @@ export default function ProfileCard() {
                 </Typography>
 
                 <Typography variant="h5" component="div" fontFamily="oswald" fontWeight="bold">
-                    {/* Your name is: {user.firstName} */}
+                    Your name is:
                 </Typography>
                 <Typography variant="h5" component="div" fontFamily="oswald" mb={2}>
-                    Name goes here.
+                    {user.firstName} {user.lastName}
                 </Typography>
 
 
@@ -37,7 +38,7 @@ export default function ProfileCard() {
                     Your email is:
                 </Typography>
                 <Typography variant="h5" component="div" fontFamily="oswald" mb={2}>
-                    Email goes here.
+                    {user.email}
                 </Typography>
 
 
@@ -46,8 +47,12 @@ export default function ProfileCard() {
                     Your profile photo URL is:
                 </Typography>
                 <Typography variant="h5" component="div" fontFamily="oswald" mb={2}>
-                    URL goes here.
+                    {user.profilePicture}
                 </Typography>
+                <Box>
+                    <img style={{ width: '200px', height: '200px', objectFit: 'cover' }} src={user.profilePicture} alt="user" />
+                </Box>
+
 
 
 

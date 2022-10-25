@@ -1,19 +1,31 @@
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
 import Footer from '../components/layoutComponents/Footer'
 import Header from '../components/layoutComponents/Header'
 import ProfileCard from '../components/ProfileCard'
+import { signOut } from '../reduxState/userSlice'
 
 
 //what is going to go on this page anyway?
 // needs to have a signout button somewhere
 
 const ProfilePage = (e) => {
-    // e.preventDefault();
+    const dispatch = useDispatch();
     const user = useSelector(state => state.user);
     console.log("user: ", user);
+    const navigate = useNavigate();
+
+    const handleClick = async (event) => {
+        event.preventDefault();
+        // const response = await Axios.post('/login', {credentials: loginForm});
+        // console.log("api response: ", response);
+        
+        dispatch(signOut(user));
+        navigate('/login');
+    };
+
 
     return (
         <div >
@@ -60,6 +72,14 @@ const ProfilePage = (e) => {
             </div>
             
  */}
+
+<Box display="flex" justifyContent="center">
+                        <Button 
+                            onClick={handleClick}
+                            
+                        >Log Out</Button>
+                </Box>
+
 
             <Box display="flex" justifyContent="center">
                     <Link to="/edit-profile" >

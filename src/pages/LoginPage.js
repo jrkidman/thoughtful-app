@@ -1,7 +1,7 @@
 import { Box, Button, Typography, TextField } from '@mui/material'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Footer from '../components/layoutComponents/Footer'
 import Header from '../components/layoutComponents/Header'
 import Axios from '../components/utils/Axios'
@@ -17,7 +17,9 @@ const LoginPage = (e) => {
     // e.preventDefault();
     const dispatch = useDispatch();
     const user = useSelector(state => state.user);
-    console.log("user: ", user);
+    // console.log("user: ", user);
+
+    const navigate = useNavigate();
 
   
 
@@ -29,6 +31,7 @@ const LoginPage = (e) => {
         console.log("api response: ", response);
         
         dispatch(signIn(response.data.user));
+        navigate('/prompt');
     };
 
     const [loginForm, setLoginForm] = useState({
@@ -36,10 +39,9 @@ const LoginPage = (e) => {
         password: '',
     });
 
-// random conditional to show overriding the other return
-    if(user){
-        return <h1>hi {user.firstName} {user.lastName}</h1>
-    }
+    // if(user){
+    //     return <h1>hi {user.firstName} {user.lastName}</h1>
+    // }
 
 
     return (

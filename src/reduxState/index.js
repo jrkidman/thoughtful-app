@@ -1,15 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { reducer } from './userSlice';
 
-// const preloadedState = JSON.parse(localStorage.getItem('application'))
-//   ? JSON.parse(localStorage.getItem('application'))
-//   : { user: null };
+const preloadedState = JSON.parse(localStorage.getItem('application'))
+  ? JSON.parse(localStorage.getItem('application'))
+  : { user: null };
 
 const store = configureStore({
   reducer: {
     user: reducer,
   },
-//   preloadedState,
+  preloadedState,
 });
 
 store.subscribe(() => {
