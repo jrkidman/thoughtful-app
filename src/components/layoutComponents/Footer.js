@@ -6,14 +6,19 @@ function Footer() {
     <Box
       bgcolor="#a9b386"
       width="100%"
-      p="40px"
+      height="80px"
+      // p="40px"
       position="relative"
       bottom="0px"
       sx={{ flexGrow: 1 }}
     >
       <Typography
         fontWeight="bold"
-        align="center"
+        display="flex"
+        justifyContent="center"
+        alignContent="center"
+
+        // textAlign="center"
         color="white"
         fontFamily="Oswald"
       >Be Thoughtful </Typography>

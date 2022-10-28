@@ -2,6 +2,7 @@
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddPromptPage from './pages/AddPromptPage';
 import EditProfilePage from './pages/EditProfilePage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
@@ -23,6 +24,8 @@ function App() {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/prompt" element={<PromptPage />} />
             <Route path="/edit-profile" element={<EditProfilePage />} />
+            <Route path="/add-prompt" element={<AddPromptPage />} />
+
 
           </Routes>
         </BrowserRouter>

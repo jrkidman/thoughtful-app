@@ -15,28 +15,29 @@ const PromptPage = () => {
     console.log('error: ', error)
 
 
-    const navigate= useNavigate();
-    // const refreshPrompt = navigate('/prompt');
-    
-        useEffect(() => {
-            const fetchData = async () => {
-                    try{
-                    const response = await Axios.get('/prompt');
-                    console.log("api response: ", response.data);
-                    const fetchedData = response.data;
-                    setPromptData(fetchedData);
-                } catch (err){
-                    setError(err.message);
-                }
-                };
-                fetchData();            
-        }, []);
-        
-    if(error){
+    const refreshPrompt = () => {
+        window.location.reload();
+    }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await Axios.get('/prompt');
+                console.log("api response: ", response.data);
+                const fetchedData = response.data;
+                setPromptData(fetchedData);
+            } catch (err) {
+                setError(err.message);
+            }
+        };
+        fetchData();
+    }, []);
+
+    if (error) {
         return 'everything broke!!';
     }
 
-    if(!promptData){
+    if (!promptData) {
         return null;
     }
 
@@ -50,9 +51,9 @@ const PromptPage = () => {
                 </Box>
 
 
-            {/* this button when clicked should generate a new prompt */}
-                <Button type="submit" 
-                // onClick={refreshPrompt}
+                {/* this button when clicked should generate a new prompt */}
+                <Button type="submit"
+                onClick={refreshPrompt}
                 >
                     Get a new prompt!
                 </Button>
