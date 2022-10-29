@@ -14,36 +14,30 @@ import Axios from '../components/utils/Axios'
 
 
 const AddPromptPage = (e) => {
-    // const dispatch = useDispatch();
-    // const user = useSelector(state => state.user);
 
-    // const navigate = useNavigate();
-
-
-    // this function is copied from login page and needs to be modified to call the prompts collection and add to it
     const handleSubmit = async (event) => {
         event.preventDefault();
         // send prompt and category, will be an axios.post call
         const response = await Axios.post('/add-prompt', newPrompt);
         console.log("api response: ", response);
-        // console.log("prompt: ", newPrompt.prompt);
-        // console.log("category: ", newPrompt.category);
+        console.log("newPrompt.prompt: ", newPrompt.prompt);
+        console.log("newPrompt.category: ", newPrompt.category);
 
-        // dispatch(signIn(response.data.user));
-        // navigate('/prompt');
     };
 
     //get category selection from dropdown
-    const [category, setCategory] = useState("");
-    const handleChange = (event) => {
-        setCategory(event.target.value);
-    };
+    // const [category, setCategory] = useState("");
+    // const handleChange = (event) => {
+    //     setCategory(event.target.value);
+    //     console.log("category inside handleChange: ", category);
+    // };
+
 
     const [newPrompt, setNewPrompt] = useState({
         prompt: '',
-        category: 'category',
+        category: '',
     });
-
+    // console.log("category after: ", category);
 
 
 
@@ -80,45 +74,49 @@ const AddPromptPage = (e) => {
 
                 <Box>
                     <div>
-                        <FormControl sx={{ m: 1, minWidth: 120 }}>
+                        <FormControl sx={{ m: 1, minWidth: 230}}>
                             <InputLabel id="category-label">Love Language Category</InputLabel>
                             <Select
                                 labelId="category"
                                 id="category"
-                                value={category}
+                                value={newPrompt.category}
                                 label="Category"
-                                onChange={handleChange}
+                                // onChange={handleChange}
+                                onChange={(event) => setNewPrompt({ ...newPrompt, category: event.target.value })}
+
+
                             >
                                 <MenuItem
                                     value="words of affirmation"
-                                    >
+
+                                >
                                     Words of Affirmation
-                                    </MenuItem>
+                                </MenuItem>
 
                                 <MenuItem
                                     value="physical touch"
-                                    >
+                                >
                                     Physical Touch
-                                    </MenuItem>
+                                </MenuItem>
 
                                 <MenuItem
                                     value="acts of service"
-                                    >
+                                >
                                     Acts of Service
-                                    </MenuItem>
+                                </MenuItem>
 
                                 <MenuItem
                                     value="quality time"
-                                    >
+                                >
                                     Quality Time
-                                    </MenuItem>
+                                </MenuItem>
 
                                 <MenuItem
                                     value="gift giving"
-                                    >
+                                >
                                     Gift Giving
-                                    </MenuItem>
-                                    {/* {console.log("category value: ", category)} */}
+                                </MenuItem>
+                                {/* {console.log("category value: ", category)} */}
                             </Select>
                         </FormControl>
                     </div>
