@@ -1,5 +1,5 @@
 import { Box, Button, Typography, TextField } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Footer from '../components/layoutComponents/Footer'
@@ -21,7 +21,11 @@ const LoginPage = (e) => {
 
     const navigate = useNavigate();
 
-  
+    useEffect(()=>{
+        if (user){
+            navigate('/prompt');
+        }
+    },[]);
 
     const handleSubmit = async (event) => {
         // make sure form is correct, validation
