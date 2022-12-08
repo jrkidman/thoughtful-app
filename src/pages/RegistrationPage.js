@@ -125,7 +125,7 @@ function RegistrationPage() {
 
 
 
-                <Box
+                {/* <Box
                     sx={{ display: 'flex' }}
                     id="checkbox-group">
                     <FormControl sx={{ m: 3, }} component="fieldset" variant="standard">
@@ -172,7 +172,7 @@ function RegistrationPage() {
                             />
                         </FormGroup>
                     </FormControl>
-                </Box>
+                </Box> */}
 
 
                 {/* {error && (
