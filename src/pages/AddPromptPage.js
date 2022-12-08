@@ -132,12 +132,6 @@ const AddPromptPage = (e) => {
 
 
 
-                {/* {error && (
-                    <Box border="1px solid red" borderRadius="5px" p={3} pb={2}>
-                        <Typography textAlign="center">{error}</Typography>
-
-                    </Box>
-                )} */}
             </form>
 
 
